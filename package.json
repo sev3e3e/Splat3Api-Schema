@@ -7,7 +7,7 @@
     "main": "./dist/splat3api-types/index.ts",
     "scripts": {
         "generate": "openapi-generator-cli generate -i ./src/schema.json -g typescript-fetch -o ./dist/splat3api-types --additional-properties=supportsES6=true,typescriptThreePlus=true,npmName=splat3api-types",
-        "build": "yarn clean && yarn generate && ts-node ./src/release.ts && yarn prettier --write ./package.json",
+        "build": "yarn clean && yarn generate",
         "clean": "rimraf dist/splat3api-types/src"
     },
     "devDependencies": {
