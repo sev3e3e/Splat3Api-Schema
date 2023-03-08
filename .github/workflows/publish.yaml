@@ -27,6 +27,9 @@ jobs:
               with:
                   args: generate -i ./src/schema.json -g typescript-fetch -o ./dist/ --additional-properties=supportsES6=true,typescriptThreePlus=true,npmName=splat3api-api-client
 
+            - name: change onwer to runner
+              run: sudo chown -R runner:runner .
+
             - name: Create PR for client repository
               uses: peter-evans/create-pull-request@v4
               with:
