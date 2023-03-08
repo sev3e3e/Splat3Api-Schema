@@ -10,33 +10,33 @@ on:
 jobs:
     publish:
         runs-on: ubuntu-latest
-      steps:
-        - name: Checkout sources
-          uses: actions/checkout@v3
+        steps:
+            - name: Checkout sources
+              uses: actions/checkout@v3
         
-        # clientをcheckout ./distに
-        - name: Checkout OpenAPI client repository
-          uses: actions/checkout@v3
-          with:
-            token: ${{ secrets.CLIENT_PAT }}
-            repository: sev3e3e/splat3-api-client
-            path: dist
+            # clientをcheckout ./distに
+            - name: Checkout OpenAPI client repository
+              uses: actions/checkout@v3
+              with:
+                token: ${{ secrets.CLIENT_PAT }}
+                repository: sev3e3e/splat3-api-client
+                path: dist
           
-        - name: Generate OpenAPI client
-          uses: docker://openapitools/openapi-generator-cli
-          with:
-            args: generate -i ./src/schema.json -g typescript-fetch -o ./dist/ --additional-properties=supportsES6=true,typescriptThreePlus=true,npmName=splat3api-api-client
+            - name: Generate OpenAPI client
+              uses: docker://openapitools/openapi-generator-cli
+              with:
+                args: generate -i ./src/schema.json -g typescript-fetch -o ./dist/ --additional-properties=supportsES6=true,typescriptThreePlus=true,npmName=splat3api-api-client
 
-        - name: Create PR for client repository
-          with:
-            token: ${{ secrets.CLIENT_PAT }}
-            path: dist
-            commit-message: [actions/create-pull-request] update client
+            - name: Create PR for client repository
+              with:
+                token: ${{ secrets.CLIENT_PAT }}
+                path: dist
+                commit-message: '[actions/create-pull-request] update client'
         
-        - name: Enable PR Auto Merge
-          if: steps.cpr.outputs.pull-request-operation == 'created'
-          uses: peter-evans/enable-pull-request-automerge@v2
-          with:
-            token: ${{ secrets.CLIENT_PAT }}
-            pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-            merge-method: squash
+            - name: Enable PR Auto Merge
+              if: steps.cpr.outputs.pull-request-operation == 'created'
+              uses: peter-evans/enable-pull-request-automerge@v2
+              with:
+                token: ${{ secrets.CLIENT_PAT }}
+                pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+                merge-method: squash
