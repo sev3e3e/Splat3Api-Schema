@@ -37,6 +37,7 @@ jobs:
                   token: ${{ secrets.CLIENT_PAT }}
                   path: dist
                   commit-message: '[actions/create-pull-request] update client'
+                  delete-branch: true
 
             - name: Enable PR Auto Merge
               if: steps.cpr.outputs.pull-request-operation == 'created' || steps.cpr.outputs.pull-request-operation == 'updated'
