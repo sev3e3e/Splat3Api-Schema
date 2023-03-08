@@ -39,7 +39,7 @@ jobs:
                   commit-message: '[actions/create-pull-request] update client'
 
             - name: Enable PR Auto Merge
-              if: steps.cpr.outputs.pull-request-operation == 'created'
+              if: steps.cpr.outputs.pull-request-operation == 'created' || steps.cpr.outputs.pull-request-operation == 'updated'
               uses: peter-evans/enable-pull-request-automerge@v2
               with:
                   token: ${{ secrets.CLIENT_PAT }}
