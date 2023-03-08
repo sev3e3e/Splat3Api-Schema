@@ -39,6 +39,9 @@ jobs:
                   commit-message: '[actions/create-pull-request] update client'
                   delete-branch: true
 
+            - name: Sleeping
+              run: sleep 5s
+
             - name: Enable PR Auto Merge
               if: steps.cpr.outputs.pull-request-operation == 'created' || steps.cpr.outputs.pull-request-operation == 'updated'
               uses: peter-evans/enable-pull-request-automerge@v2
