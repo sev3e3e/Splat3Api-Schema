@@ -39,14 +39,7 @@ jobs:
                   commit-message: '[actions/create-pull-request] update client'
                   delete-branch: true
 
-            - name: Sleeping
-              run: sleep 5s
-
-            - name: Enable PR Auto Merge
-              uses: peter-evans/enable-pull-request-automerge@v2
-              if: steps.cpr.outputs.pull-request-operation == 'created' || steps.cpr.outputs.pull-request-operation == 'updated'
-              with:
-                  token: ${{ secrets.CLIENT_PAT }}
-                  pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-                  merge-method: squash
-                  repository: sev3e3e/Splat3Api-Client
+            - name: Merge PR
+              run: gh pr merge ${{ steps.cpr.outputs.pull-request-url }} --merge --squash --delete-branch
+              env:
+                  GH_TOKEN: ${{ secrets.CLIENT_PAT }}
