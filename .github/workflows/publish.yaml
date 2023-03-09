@@ -40,6 +40,6 @@ jobs:
                   delete-branch: true
 
             - name: Merge PR
-              run: gh pr merge ${{ steps.cpr.outputs.pull-request-url }} --merge --squash --delete-branch
+              run: gh pr merge ${{ steps.cpr.outputs.pull-request-url }} --squash --delete-branch
               env:
                   GH_TOKEN: ${{ secrets.CLIENT_PAT }}
