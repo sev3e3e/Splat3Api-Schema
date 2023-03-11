@@ -26,7 +26,7 @@ jobs:
             - name: Generate OpenAPI client
               uses: docker://openapitools/openapi-generator-cli
               with:
-                  args: generate -i ./src/schema.json -g typescript-fetch -o ./dist/ --git-repo-id Splat3Api-Client --git-user-id sev3e3e --additional-properties=supportsES6=true,typescriptThreePlus=true,npmName=@sev3e3e/splat3api-api-client
+                  args: generate -i ./src/schema.json -g typescript-fetch -o ./dist/ --git-repo-id Splat3Api-Client --git-user-id sev3e3e --additional-properties=supportsES6=true,typescriptThreePlus=true,npmName=@sev3e3e/splat3api-client
 
             - name: change onwer to runner
               run: sudo chown -R runner:runner .
