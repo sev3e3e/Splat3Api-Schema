@@ -5,7 +5,7 @@
   },
   "info": {
     "title": "Splat3Api",
-    "version": "0.0.14-alpha",
+    "version": "0.0.15-alpha",
     "description": "このAPIは、Splatoon3の関連データを取得するための非公式APIです。\n\n## Rate Limit\n\nこのAPIには、1分あたり100回のレート制限があります。どのエンドポイントにおいても、以下ようなレスポンスヘッダーが含まれています。\n\n```\nRateLimit-Limit: 100\nRateLimit-Remaining: 99\nRateLimit-Reset: 589\n```\n\n- `RateLimit-Limit`はレート制限の基準数です。この値を超えると、再度リクエストを送信できるようになるまでブロックされます。\n- `RateLimit-Remaining`は残りのリクエスト回数です。\n- `RateLimit-Reset`は`RateLimit-Remaining`がリセットされるまでの秒数です。\n\nレート制限はIPごとに行われます。また、すべてのリクエストがカウントの対象であり、どのレスポンスでも1リクエストとしてカウントされます。\n\n- 404 Not Found\n- 400 Bad Request\n- 204 No Content\n- 200 OK"
   },
   "paths": {
