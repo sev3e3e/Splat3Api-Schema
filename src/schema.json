@@ -571,7 +571,7 @@
         },
         "operationId": "get-area-x-rankings",
         "tags": [
-          "XRankings"
+          "Ranking"
         ],
         "parameters": [
           {
@@ -588,7 +588,7 @@
       "get": {
         "summary": "Get Clam X Rankings",
         "tags": [
-          "XRankings"
+          "Ranking"
         ],
         "responses": {
           "200": {
@@ -621,7 +621,7 @@
       "get": {
         "summary": "Get Tower X Rankings",
         "tags": [
-          "XRankings"
+          "Ranking"
         ],
         "responses": {
           "200": {
@@ -654,7 +654,7 @@
       "get": {
         "summary": "Get Rainmaker X Rankings",
         "tags": [
-          "XRankings"
+          "Ranking"
         ],
         "responses": {
           "200": {
@@ -1662,5 +1662,13 @@
       }
     }
   },
+  "tags": [
+    {
+      "name": "Schedule"
+    },
+    {
+      "name": "Ranking"
+    }
+  ],
   "servers": []
 }
