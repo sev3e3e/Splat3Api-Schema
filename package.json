@@ -1,14 +1,13 @@
 {
-    "name": "splat3api-types",
+    "name": "splat3api-schema",
     "repository": "https://github.com/sev3e3e/Splat3Api-Types.git",
     "author": "sev3e3e <fc2tokaqq+sev3e3e@gmail.com>",
     "license": "MIT",
     "private": false,
-    "main": "./dist/splat3api-types/index.ts",
     "scripts": {
-        "generate": "openapi-generator-cli generate -i ./src/schema.json -g typescript-fetch -o ./dist/splat3api-types --additional-properties=supportsES6=true,typescriptThreePlus=true,npmName=splat3api-types",
+        "generate": "openapi-generator-cli generate -i ./src/schema.json -g typescript-fetch -o ./dist/splat3api-client --additional-properties=supportsES6=true,typescriptThreePlus=true,npmName=splat3api-client",
         "build": "yarn clean && yarn generate",
-        "clean": "rimraf dist/splat3api-types/src"
+        "clean": "rimraf dist/splat3api-client/src"
     },
     "devDependencies": {
         "@openapitools/openapi-generator-cli": "^2.5.2",
