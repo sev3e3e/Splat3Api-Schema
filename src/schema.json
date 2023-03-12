@@ -731,6 +731,7 @@
           },
           "stages": {
             "type": "array",
+            "nullable": true,
             "items": {
               "type": "object",
               "properties": {
@@ -740,11 +741,20 @@
                 "name": {
                   "type": "string"
                 }
-              }
-            },
-            "nullable": true
+              },
+              "required": [
+                "id",
+                "name"
+              ]
+            }
           }
-        }
+        },
+        "required": [
+          "startTime",
+          "endTime",
+          "rule",
+          "stages"
+        ]
       },
       "SalmonRunSchedule": {
         "type": "object",
@@ -777,12 +787,18 @@
           },
           "weapons": {
             "type": "array",
+            "nullable": true,
             "items": {
               "type": "string"
-            },
-            "nullable": true
+            }
           }
-        }
+        },
+        "required": [
+          "startTime",
+          "endTime",
+          "stage",
+          "weapons"
+        ]
       },
       "XRankingPlayerData": {
         "type": "object",
@@ -813,7 +829,14 @@
           "weapon": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "name",
+          "nameId",
+          "rank",
+          "xPower",
+          "weapon"
+        ]
       }
     },
     "responses": {
