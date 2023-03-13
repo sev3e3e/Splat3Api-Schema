@@ -32,7 +32,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AllSchedule"
+                  "$ref": "#/components/schemas/AllSchedules"
                 }
               }
             }
@@ -763,12 +763,13 @@
           "stages"
         ]
       },
-      "AllSchedule": {
+      "AllSchedules": {
         "title": "AllSchedules",
         "x-stoplight": {
-          "id": "j784x7cy2jbci"
+          "id": "7e39eec522580"
         },
         "type": "object",
+        "description": "`regular match`, `bankaraMatch Open`, `bankaraMatch Challenge`, `Salmon Run`, `X Battle`のスケジュール。",
         "properties": {
           "bankaraOpenSchedules": {
             "type": "array",
@@ -791,7 +792,7 @@
           "salmonRunSchedules": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Schedule"
+              "$ref": "#/components/schemas/SalmonRunSchedule"
             }
           },
           "xSchedules": {
@@ -801,7 +802,13 @@
             }
           }
         },
-        "description": "`regular match`, `bankaraMatch Open`, `bankaraMatch Challenge`, `Salmon Run`, `X Battle`のスケジュール。"
+        "required": [
+          "bankaraOpenSchedules",
+          "bankaraChallengeSchedules",
+          "regularSchedules",
+          "salmonRunSchedules",
+          "xSchedules"
+        ]
       },
       "SalmonRunSchedule": {
         "type": "object",
