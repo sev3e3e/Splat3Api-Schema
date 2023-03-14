@@ -539,7 +539,7 @@
       },
       "parameters": []
     },
-    "/schedules/salmonRun": {
+    "/schedules/salmon": {
       "get": {
         "summary": "Get SalmonRun Schedules",
         "tags": [
@@ -740,19 +740,7 @@
             "type": "array",
             "nullable": true,
             "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "number"
-                },
-                "name": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "id",
-                "name"
-              ]
+              "$ref": "#/components/schemas/Stage"
             }
           }
         },
@@ -890,6 +878,25 @@
           "rank",
           "xPower",
           "weapon"
+        ]
+      },
+      "Stage": {
+        "title": "Stage",
+        "x-stoplight": {
+          "id": "osvwwk6bl2rbj"
+        },
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          ""
         ]
       }
     },
